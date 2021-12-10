@@ -54,7 +54,11 @@
 ;; they are implemented.
 ;;
 ;;
+;;设置 emacs 代理
 (setq url-proxy-services
         '(("no_proxy" . "^\\(localhost\\|10.*\\)")
         ("http" . "127.0.0.1:7890")
 	("https" . "127.0.0.1:7890")))
+
+;; 设置补全的延迟时间
+(setq company-idle-delay 0)
