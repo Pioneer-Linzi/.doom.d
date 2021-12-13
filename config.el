@@ -62,3 +62,29 @@
 
 ;; 设置补全的延迟时间
 (setq company-idle-delay 0)
+
+
+;; org-mode 文本内语法高亮
+(require 'org)
+(setq org-src-fontify-natively t)
+
+
+
+;; 代码缩进
+(defun indent-buffer()
+  (interactive)
+  (indent-region (point-min) (point-max)))
+
+(defun indent-region-or-buffer()
+  (interactive)
+  (save-excursion
+    (if (region-active-p)
+        (progn
+          (indent-region (region-beginning) (region-end))
+          (message "Indent selected region."))
+      (progn
+        (indent-buffer)
+        (message "Indent buffer.")))))
+
+;; 设置代码格式化快捷键
+(global-set-key (kbd "C-c \\") 'indent-region-or-buffer)
