@@ -48,3 +48,14 @@
 ;(unpin! pinned-package another-pinned-package)
 ;; ...Or *all* packages (NOT RECOMMENDED; will likely break things)
 ;(unpin! t)
+
+
+(package! lsp-mode)
+
+(package! web-mode)
+
+;; vue
+(package! vue-mode)
+
+;; less
+(package! less-css-mode)
