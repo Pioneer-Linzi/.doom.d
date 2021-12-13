@@ -59,3 +59,8 @@
 
 ;; less
 (package! less-css-mode)
+
+
+(package! ob-typescript)
+
+(package! prettier-js)

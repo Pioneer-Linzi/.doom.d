@@ -102,3 +102,7 @@
 (defun vue-mode/init-vue-mode ()
   "Initialize my package"
   (use-package vue-mode))
+
+
+;; 设置 projectile 的 search-path
+(setq projectile-project-search-path '("/Volumes/data/github" "/Users/linzi/SynologyDrive/" ("~/github" . 1)))
