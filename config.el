@@ -88,3 +88,6 @@
 
 ;; 设置代码格式化快捷键
 (global-set-key (kbd "C-c \\") 'indent-region-or-buffer)
+
+;; 设置neotree-toggle hot-keys
+(global-set-key (kbd "C-c C-e") 'neotree-toggle)
