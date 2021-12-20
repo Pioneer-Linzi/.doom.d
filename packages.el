@@ -66,3 +66,5 @@
 (package! prettier-js)
 
 (package! undo-tree)
+
+(package! with-editor)
