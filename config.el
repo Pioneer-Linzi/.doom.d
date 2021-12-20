@@ -108,3 +108,12 @@
 
 ;; 设置 projectile 的 search-path
 (setq projectile-project-search-path '("/Volumes/data/github" "/Users/linzi/SynologyDrive/" ("~/github" . 1)))
+
+
+;; deft
+(setq deft-directory "~/SynologyDrive/note/"
+      deft-extensions '("org")
+      deft-recursive t)
+
+
+(setq org-roam-directory "~/SynologyDrive/roam")
