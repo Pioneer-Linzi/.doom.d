@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: checkItem
+# uuid: sdadf
+# key: -
+# condition: t
+# --
+- [  ]

@@ -65,3 +65,4 @@
 
 (package! prettier-js)
 
+(package! undo-tree)
