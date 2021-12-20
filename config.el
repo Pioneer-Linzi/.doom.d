@@ -29,7 +29,10 @@
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
-(setq org-directory "~/SynologyDrive/note/")
+(setq org-agenda-files
+         (list
+           (concat org-directory "~/SynologyDrive/note/")
+           (concat org-directory  "/Users/xmly/Library/Mobile Documents/iCloud~com~appsonthemove~beorg/Documents/org")))
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
