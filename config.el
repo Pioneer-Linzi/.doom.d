@@ -116,4 +116,4 @@
       deft-recursive t)
 
 
-(setq org-roam-directory "~/SynologyDrive/roam")
+(setq org-roam-directory "~/SynologyDrive/note")
