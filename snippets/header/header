@@ -1,0 +1,10 @@
+# -*- mode: snippet -*-
+# name: header
+# key: header
+# --
+#+author: linlin.zhao
+#+DATE: [2021-12-09]
+#+STARTUP: showall
+#+SEQ_TODO: NEXT(n) TODO(t) WAITING(w) SOMEDAY(s) | DONE(d) CANCELLED(c)
+#+LANGUAGE: zh-CN
+#+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup

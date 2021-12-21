@@ -107,7 +107,7 @@
 
 
 ;; 设置 projectile 的 search-path
-(setq projectile-project-search-path '("/Volumes/data/github" "/Users/linzi/SynologyDrive/" ("~/github" . 1)))
+(setq projectile-project-search-path '("~/SynologyDrive/" ("~/github" . 1)))
 
 
 ;; deft
