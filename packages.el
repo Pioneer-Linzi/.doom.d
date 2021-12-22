@@ -68,3 +68,7 @@
 (package! undo-tree)
 
 (package! with-editor)
+
+
+(unpin! org-roam)
+(package! org-roam-ui)
