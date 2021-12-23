@@ -70,4 +70,9 @@
 (package! with-editor)
 
 
+;; org-roam-bibtex
+(package! org-roam-bibtex
+  :recipe (:host github :repo "org-roam/org-roam-bibtex"))(package! org-roam-bibtex)
 (unpin! org-roam)
+
+(unpin! bibtex-completion helm-bibtex ivy-bibtex)

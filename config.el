@@ -118,3 +118,9 @@
 
 (setq org-roam-directory "~/SynologyDrive/roam")
 
+
+;; org-roam-bibtex
+(use-package! org-roam-bibtex
+  :after org-roam
+  :config
+  (require 'org-ref)) ; optional: if Org Ref is not loaded anywhere else, load it here
