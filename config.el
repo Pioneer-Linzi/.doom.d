@@ -26,14 +26,14 @@
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
 ;; doom-one/zaiste/
-(setq doom-theme 'doom-one)
+(setq doom-theme 'doom-henna)
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
 (setq org-agenda-files
-         (list
-           (concat org-directory "~/SynologyDrive/note/")
-           ))
+      (list
+       (concat org-directory "~/SynologyDrive/note/")
+       ))
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
@@ -60,7 +60,7 @@
 ;;
 ;;设置 emacs 代理
 (setq url-proxy-services
-        '(("no_proxy" . "^\\(localhost\\|10.*\\)")
+      '(("no_proxy" . "^\\(localhost\\|10.*\\)")
         ("http" . "127.0.0.1:7890")
 	("https" . "127.0.0.1:7890")))
 
@@ -97,7 +97,7 @@
 
 ;; VUE
 (setq vue-mode-packages
-  '(vue-mode))
+      '(vue-mode))
 
 (setq vue-mode-excluded-packages '())
 
@@ -110,13 +110,26 @@
 (setq projectile-project-search-path '("~/SynologyDrive/" ("~/github" . 1)))
 
 
-;; deft
-(setq deft-directory "~/SynologyDrive/note/"
-      deft-extensions '("org")
-      deft-recursive t)
 
 
 (setq org-roam-directory "~/SynologyDrive/roam")
+
+
+(use-package! org-roam
+  :after org
+  :init (setq org-roam-v2-ack t) ;; Acknowledge V2 upgrade
+  :custom
+  (org-roam-directory (file-truename org-directory))
+  :config
+  (org-roam-setup)
+  :bind (("C-c n f" . org-roam-node-find)
+         ("C-c n r" . org-roam-node-random)
+         (:map org-mode-map
+          (("C-c n i" . org-roam-node-insert)
+           ("C-c n o" . org-id-get-create)
+           ("C-c n t" . org-roam-tag-add)
+           ("C-c n a" . org-roam-alias-add)
+           ("C-c n l" . org-roam-buffer-toggle)))))
 
 
 ;; org-roam-bibtex
@@ -124,3 +137,16 @@
   :after org-roam
   :config
   (require 'org-ref)) ; optional: if Org Ref is not loaded anywhere else, load it here
+
+
+(use-package! deft
+  :config
+  (setq deft-directory org-directory
+        deft-recursive t
+        deft-strip-summary-regexp ":PROPERTIES:\n\\(.+\n\\)+:END:\n"
+        deft-use-filename-as-title t)
+  :bind
+  ("C-c n d" . deft))
+
+
+(add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))

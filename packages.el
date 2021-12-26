@@ -76,3 +76,6 @@
 (unpin! org-roam)
 
 (unpin! bibtex-completion helm-bibtex ivy-bibtex)
+
+;; orgmode 主题 圆点
+(package! org-bullets)
