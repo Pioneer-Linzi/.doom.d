@@ -114,39 +114,11 @@
 
 (setq org-roam-directory "~/SynologyDrive/roam")
 
-
-(use-package! org-roam
-  :after org
-  :init (setq org-roam-v2-ack t) ;; Acknowledge V2 upgrade
-  :custom
-  (org-roam-directory (file-truename org-directory))
-  :config
-  (org-roam-setup)
-  :bind (("C-c n f" . org-roam-node-find)
-         ("C-c n r" . org-roam-node-random)
-         (:map org-mode-map
-          (("C-c n i" . org-roam-node-insert)
-           ("C-c n o" . org-id-get-create)
-           ("C-c n t" . org-roam-tag-add)
-           ("C-c n a" . org-roam-alias-add)
-           ("C-c n l" . org-roam-buffer-toggle)))))
+(setq org-roam-completion-everywhere t)
 
 
-;; org-roam-bibtex
-(use-package! org-roam-bibtex
-  :after org-roam
-  :config
-  (require 'org-ref)) ; optional: if Org Ref is not loaded anywhere else, load it here
 
 
-(use-package! deft
-  :config
-  (setq deft-directory org-directory
-        deft-recursive t
-        deft-strip-summary-regexp ":PROPERTIES:\n\\(.+\n\\)+:END:\n"
-        deft-use-filename-as-title t)
-  :bind
-  ("C-c n d" . deft))
 
 
 (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
