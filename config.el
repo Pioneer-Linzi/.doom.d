@@ -26,13 +26,14 @@
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
 ;; doom-one/zaiste/
-(setq doom-theme 'doom-henna)
+(setq doom-theme 'doom-one)
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
 (setq org-agenda-files
       (list
        (concat org-directory "~/SynologyDrive/note/")
+       (concat org-directory "~/SynologyDrive/roam/")
        ))
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
@@ -65,7 +66,7 @@
 	("https" . "127.0.0.1:7890")))
 
 ;; 设置补全的延迟时间
-(setq company-idle-delay 0.6)
+(setq company-idle-delay 0)
 
 
 ;; org-mode 文本内语法高亮
