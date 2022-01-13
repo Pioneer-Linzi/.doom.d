@@ -35,6 +35,18 @@
        (concat org-directory "~/SynologyDrive/note/")
        (concat org-directory "~/SynologyDrive/roam/")
        ))
+(setq +org-capture-journal-file "~/SynologyDrive/note/journal/journal.org")
+(setq +org-capture-todo-file "~/SynologyDrive/note/journal/tasks.org")
+(setq +org-capture-notes-file "~/SynologyDrive/note/journal/inbox.org")
+(setq +org-capture-projects-file "~/SynologyDrive/note/journal/projects.org")
+
+(setq org-journal-dir "~/SynologyDrive/note/journal/")
+(setq
+ org-ellipsis " ▾ "
+ org-log-done 'time
+ css-indent-offset 2)
+
+
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
@@ -52,15 +64,14 @@
 ;; - `map!' for binding new keys
 ;;
 ;; To get information about any of these functions/macros, move the cursor over
-;; the highlighted symbol at press 'K' (non-evil users must press 'C-c c k').
-;; This will open documentation for it, including demos of how they are used.
+;; the highlighted symbol at press 'K' (non-evil users must press 'C-c c k').;; This will open documentation for it, including demos of how they are used.
 ;;
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
 ;;
 ;;
 ;;设置 emacs 代理
-(setq url-proxy-services
+(setq url-proxy-srvices
       '(("no_proxy" . "^\\(localhost\\|10.*\\)")
         ("http" . "127.0.0.1:7890")
 	("https" . "127.0.0.1:7890")))
@@ -68,6 +79,18 @@
 ;; 设置补全的延迟时间
 (setq company-idle-delay 0)
 
+;; font for orgmode table
+(setq fonts
+      (cond ((eq system-type 'darwin)     '("Monaco"    "STHeiti"))
+            ((eq system-type 'gnu/linux)  '("Menlo"     "WenQuanYi Zen Hei"))
+            ((eq system-type 'windows-nt) '("Consolas"  "Microsoft Yahei"))))
+(set-face-attribute 'default nil :font
+                    (format "%s:pixelsize=%d" (car fonts) 14))
+(dolist (charset '(kana han symbol cjk-misc bopomofo))
+  (set-fontset-font (frame-parameter nil 'font) charset
+                    (font-spec :family (car (cdr fonts)))))
+;; Fix chinese font width and rescale
+(setq face-font-rescale-alist '(("Microsoft Yahei" . 1.2) ("WenQuanYi Micro Hei Mono" . 1.2) ("STHeiti". 1.2)))
 
 ;; org-mode 文本内语法高亮
 (require 'org)
@@ -91,8 +114,6 @@
         (indent-buffer)
         (message "Indent buffer.")))))
 
-;; 设置代码格式化快捷键
-(global-set-key (kbd "C-c \\") 'indent-region-or-buffer)
 
 
 
@@ -113,13 +134,19 @@
 
 
 
+;;roam
 (setq org-roam-directory "~/SynologyDrive/roam")
-
 (setq org-roam-completion-everywhere t)
 
 
 
 
-
-
+;; org mode 的主题设置
 (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
+
+
+;; key map
+;; 设置org mode中 编辑src代码的快捷键
+(global-set-key (kbd "C-c s e") 'org-edit-src-code)
+;; 设置代码格式化快捷键
+(global-set-key (kbd "C-c \\") 'indent-region-or-buffer)
