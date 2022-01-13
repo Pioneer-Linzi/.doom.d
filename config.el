@@ -138,7 +138,7 @@
 (setq org-roam-directory "~/SynologyDrive/roam")
 (setq org-roam-completion-everywhere t)
 
-
+(setq tramp-default-method "ssh")
 
 
 ;; org mode 的主题设置
